@@ -18,7 +18,12 @@ class RequestsDatabase implements Requests {
 
 
     public function getMatchesFor($request, $distance = 1000){
-        $r =  Request::distanceSphere('source', $request->source, $distance)->get();
+        $deltaTime = config('logic.delta_time'); //seconds
+
+        $query = Request::whereBetween('at_time', [$request->at_time - $deltaTime, $request->at_time + $deltaTime])
+            ->distanceSphere('source', $request->source, $distance);
+
+        $r =  $query->get();
         return $r;
     }
 }

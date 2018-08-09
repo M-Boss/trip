@@ -10,8 +10,8 @@ class Request extends Model
 {
 
     use SpatialTrait;
-    public $spatialFields = ['source', 'destination'];
-    protected $fillable = ['source'];
+    public $spatialFields = ['source', 'destination', ];
+    protected $fillable = ['source', 'destination', 'at_time', 'user_id'];
 
     public function __construct(array $attributes = [])
     {

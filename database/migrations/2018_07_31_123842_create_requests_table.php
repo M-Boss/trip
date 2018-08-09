@@ -21,7 +21,7 @@ class CreateRequestsTable extends Migration
             $table->point("destination");
             //$table->time("from_time");
             //$table->time("to_time");
-            $table->timestamp("at_time");
+            $table->unsignedInteger("at_time");
 
             //preferences
             $table->tinyInteger("empty_seats")->default(3);

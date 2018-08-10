@@ -26,6 +26,13 @@ class AuthController extends Controller
     }
 
 
+    public function requestNewOTP(Users $usersRepo, Request $httpRequest){
+        $user = $usersRepo->getOne(['mobile' => $httpRequest->get('mobile')]);
+        if($user) {
+            $usersRepo->generateOTP($user);
+        }
+    }
+
     /**
      * Get a JWT via given credentials.
      *

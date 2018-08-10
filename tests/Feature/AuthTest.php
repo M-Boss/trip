@@ -73,6 +73,24 @@ class AuthTest extends TestCase
     }
 
 
+    public function testNewOTPRequest(){
+        $user = factory(User::class)->create();
+        $response = $this->post('api/auth/otp', [
+            'mobile' => $user->mobile
+        ]);
+        $response->assertStatus(200);
+    }
+
+
+    public function testNewOTPRequestUnregisteredNumberShouldSucceed(){
+
+        $response = $this->post('api/auth/otp', [
+            'mobile' => '09121122323'
+        ]);
+        $response->assertStatus(200);
+    }
+
+
     private function registerUser(){
         $data = [
             'mobile' => '09111777052',

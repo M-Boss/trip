@@ -11,4 +11,6 @@ interface Users{
     public function create($user);
     public function generateOTP($user);
     public function attemptOTP($mobile, $otp);
+    public function get($attributes);
+    public function getOne($attributes);
 }

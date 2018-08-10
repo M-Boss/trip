@@ -30,6 +30,7 @@ Route::group([
 
     Route::any('register', 'AuthController@register');
     Route::any('login', 'AuthController@login');
+    Route::any('otp', 'AuthController@requestNewOTP');
 //    Route::post('logout', 'AuthController@logout');
 //    Route::post('refresh', 'AuthController@refresh');
 //    Route::post('me', 'AuthController@me');

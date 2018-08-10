@@ -16,8 +16,11 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\Event' => [
             'App\Listeners\EventListener',
         ],
-        'App\Events\UserCreated' => [
-            'App\Listeners\SendOTPOnUserCreate'
+//        'App\Events\UserCreated' => [
+//            'App\Listeners\SendOTPOnUserCreate'
+//        ],
+        'App\Events\OTPGenerated' => [
+            'App\Listeners\SendOTPSMS'
         ]
     ];
 
